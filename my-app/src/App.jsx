@@ -10,18 +10,27 @@ const Products = () => {
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-center mb-8">Products</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <section className="container mx-auto p-10 md:py-12 px-0 md:p-8 md:px-0">
+      <h1 className="text-4xl font-bold text-center mb-10 text-purple-600">Our Products</h1>
+      <section className="p-5 md:p-0 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 items-start">
         {products.map((product) => (
-          <div key={product.id} className="bg-white shadow-md rounded-lg p-4">
-            <img src={product.image} alt={product.title} className="w-full h-40 object-contain mb-4" />
-            <h3 className="text-lg font-semibold mb-2">{product.title}</h3>
-            <p className="text-gray-700 font-medium">{product.price} USD</p>
-          </div>
+          <section
+            key={product.id}
+            className="p-5 py-10 bg-purple-50 text-center transform duration-500 hover:-translate-y-2 cursor-pointer"
+          >
+            <img src={product.image} alt={product.title} className="h-40 mx-auto" />
+            <div className="space-x-1 flex justify-center mt-10">
+            </div>
+            <h1 className="text-2xl font-semibold text-gray-800 my-5">{product.title}</h1>
+            <p className="mb-5">{product.description}</p>
+            <h2 className="font-semibold mb-5">${product.price}</h2>
+            <button className="p-2 px-6 bg-purple-500 text-white rounded-md hover:bg-purple-600">
+              Add To Cart
+            </button>
+          </section>
         ))}
-      </div>
-    </div>
+      </section>
+    </section>
   );
 };
 
